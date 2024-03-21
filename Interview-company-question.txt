@@ -1,0 +1,195 @@
+Interview Question
+-----------------------------------
+ZENSAR technologies:
+******************************************************
+1. Write the program of Bubble sort
+2. Write the program of BinarySearchTree
+3. Write the program to find second height number from array
+-----------------------------------------------------
+
+
+1. what is synchronous and asynchronous request in rest.
+
+List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+
+
+myList.stream().sorted((01,02) -> (int)())
+
+
+----------------
+public class Test {
+    public static void main(String args[]) {
+      A a = new A();
+    }
+}
+ 
+ 
+class A {
+    static {
+        System.out.print("ASB ");
+    }
+    {
+       System.out.print("AIB ");
+    }
+    A() {
+        System.out.print("ACB ");
+    }    
+}
+
+
+
+A -> B -> C -> A
+--------------------------------
+{0,1,1,0,1,0,1,1,0,0,0,1} - Sort
+using head and t
+
+
+String s = "aaaddd**%%cccffrreessaaa"
+Count each character
+a-> 6
+d-> 3
+
+------------------------------
+aa, bb, cc, aa, 
+
+
+list.stream().filter(n -> Collection.frequency(list, n)==2).collect(Collectors.toList());
+-----------------------------
+[3:23 PM] Arun Prasad Natarajan
+"abcabcbb"
+
+[3:23 PM] Arun Prasad Natarajan
+"pwwkew"
+[3:27 PM] Arun Prasad Natarajan
+"bbbbbbb"
+
+
+list.stream().filter(n -> Collection.frequency(list,1))
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class LongestSubstring {
+    public static int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        Set<Character> set = new HashSet<>();
+        int left = 0, right = 0, maxLen = 0;
+
+        while (right < n) {
+            if (!set.contains(s.charAt(right))) {
+                set.add(s.charAt(right));
+                maxLen = Math.max(maxLen, right - left + 1);
+                right++;
+            } else {
+                set.remove(s.charAt(left));
+                left++;
+            }
+        }
+
+        return maxLen;
+    }
+
+    public static void main(String[] args) {
+        String input = "pwwkew";
+        int result = lengthOfLongestSubstring(input);
+        System.out.println("Length of the longest substring without repeating characters: " + result);
+    }
+}
+-------------------------------------------
+1,2,3,4,5,6
+
+list.stream().filter(n -> n%2==0).collect(Collector.toList()).
+---------------------------------------
+Employee and Employee_	Details tables
+
+Employee:
+emp_id
+first_name
+last_name
+salary
+
+Employee_Details
+emp_id
+date_of_joining
+
+remove dulcates from tables 
+
+select distinct(e.emp_id, e.first_name, e.last_name) 
+from employee e, 
+employee_details ed 
+where e.imp_id=ed.empId group_by (e.emp_id, e.first_name, e.last_name)
+
+select max(salary) from employee where salary = 
+(select max(salary) from employee where salary = select max(salary) from employee where salary = 
+select max(salary) from employee)))
+
+------------------------------------------
+
+CGI
+-------
+1. Angular hooks
+2. How to do depencency injection
+3. List<String> input = Arrays.asList("name;Alex", "name;Malte", "name;Danny", "name;Flori", "names;Arne");
+sort according to only name
+input.stream().map(o -> o.split(";")(1).sorted((o1,o2) -> (String)(o1 - 02)).collect(Collectors.toList()));
+
+4. How to do depencency incection in spring 
+5. how to edit and update and if any fail how to handle it
+6. What is defference between delete and truncate
+7. Diff between string builder and string tokenizer
+8. What is clone of object
+------------------------------
+
+Genpact
+-------------------
+1. Sort with name and Date using stream
+
+List<Students> studentList
+studentList.stream().sorted((o1, o2) -> (String)(o1.getName()-o2.getName()).than((o1,o2) -> (Date)(01.getDob() - o2.getDob())).collect(Collector.toList());
+
+String str="Satish";
+s=2,a=1,t=1,i=1,h=1
+
+2. Diff between Spring and Spring boot
+3. What is deep copy and sallow copy 
+4. How to write immultable class
+------------------------------------------------------
+Go Digit
+--------------------------------------------------------
+1. Create a Java function which takes an array of Integer and returns second largest Integer value from the given array... CONDITIONS...1. NO use of Stream API, 2. No sorting of the given array, 3. No use of any in-built function
+2. What is spring bean life cycle
+3. What is use of spring boot init method
+4. How to create custom exception in java
+
+---------------------------------------------------
+Genpact 3rd round
+------------------------------
+Student
+	id
+	name
+	
+Class
+	class_name	
+	student_id
+	
+Marks
+	Student_id
+	Subject
+	marks
+	
+	
+each class topper in math student;
+
+
+select s.student_name, class_name from student s, class c, marks m where group by c.class where c.subject = 'Math' and max(m.marks) and s.id = c.student_id and s.student_id = m.student_id;
+
+
+
+Select class_name, student_id from class c where marks = (
+select max(marks) from marks where subject = 'Math') and student_id = student_id
+
+
+Map<String, Long> datas = list.stream().filter(o -> o.subject().equals('Math')).collect(Collectors.goupBy(Student::className, Collectors.max(Student::marks)));
+---------------------------------------
+
+

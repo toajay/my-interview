@@ -1,0 +1,11 @@
+-----------------Query Optimization-----------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+1. Foreign key should be indexed and it must refrer to primary key or unique key
+2. Check the cost of query (using explain plan) cost means CPU and Memory utilization and execution time. review and analyze explain plan 
+3. Avoid group by and distinct key word. 
+4. Gather stats of entire schema and tables once in maonth. Optizser will choose best plan after gather stats. 
+5. Rebuild indexes
+6. Use of possible use of Partitioning of tables
+7. Create indexes where it is necessery. 
+8. if slowness in production then first we will check is there any loading going on, or any tables lock that will cause the slowness. 
+9. work with dba to more optimation of tables and query. 
