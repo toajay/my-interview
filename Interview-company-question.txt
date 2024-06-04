@@ -35,6 +35,25 @@ class A {
         System.out.print("ACB ");
     }    
 }
+----------------------------
+Create a Java function which takes an array of Integer and returns second largest Integer value from the given array... CONDITIONS...1. NO use of Stream API, 2. No sorting of the given array, 3. No use of any in-built function
+
+
+int[] arrays= {10,20,5, 3};
+
+public int getSecondLargestVal(int[] arrays){
+	int largest = 0;
+	int secondLargest = 0;
+	for(int i=0; i <= arrays.lenth; i++){
+		if(arrays[i] > arrays[i+1]){
+			largest = arrays[i];
+			secondLargest = arrays[i+1];
+		} else {
+			largest = arrays[i+1];
+			secondLargest = arrays[i];
+		}	
+	}
+}
 
 
 
@@ -191,5 +210,430 @@ select max(marks) from marks where subject = 'Math') and student_id = student_id
 
 Map<String, Long> datas = list.stream().filter(o -> o.subject().equals('Math')).collect(Collectors.goupBy(Student::className, Collectors.max(Student::marks)));
 ---------------------------------------
+"Java programming is fun","Streams are powerful","Java programming is versatile"
+
+you need to distinct words using streams and flatmap
+"Java programming is fun","Streams are powerful","Java programming is versatile"
+
+you need to distinct words using streams and flatmap
+
+Java,Programming,is,fun,Streams,are,powerful,versatile
+
+list.stream().flatMap(o -> o.split(" ")).collect(Collectors.toList())
+
+
+public class MyCustomException extends Exception{
+	void m1(){
+		try{
+			//
+		}catch(Exception e){
+			throw new MyCustomException();
+		}
+	}
+}
+--------------------------------
+
+
+BlendBenchMarkMapping
+	BlendBenchMarkId
+	basebenchMark
+	percentage
+	
+Constitutant
+	id
+	securityId
+	weight
+	marketValue
+	
+	
+	
+BlendBenchMarkMapping
+	BlendBenchMarkId--B
+	basebenchMark -- E,F
+	percentage-- 
+	securityId--E1,E2, F1, F2
+	weight
+	marketValue
+	
+	
+	getSecurityIdAndWeight(String BlendBenchMarkId){
+	
+		 List<BlendBenchMarkMapping> list -- get the data from db by joining both the table 
+		 
+		 List<BlendBenchMarkMapping> baseBenchMarkList = list.stream().filter(o -> o.getBlendBenchMarkId().equals("B")).collect(Collectors.toList());
+		 
+		 
+		 
+		 Map<String,String> map
+		 forEach(BlendBenchMarkMapping banchMark:baseBenchMarkList){
+			String percentageCal = banchMark.getWeight() * percentage/100;
+			map.put(banchMark.securityId(), percentageCal);
+			
+		 }
+		 
+		  forEach(BlendBenchMarkMapping banchMark:baseBenchMarkList){
+			
+		  }
+		 
+	}
+ ---------------
+ List<Employee>  alOfEmp = Arrays.asList(
+        new Employee ("IT", "John", "Smith", "Miami", 19),
+        new Employee ("Sales", "Mike", "Miles", "New York", 21),
+        new Employee ("IT", "Michael", "Peterson", "New York", 20),
+        new Employee ("Return", "James", "Robertson", "Miami", 20),
+        new Employee ("IT", "Kyle", "Miller", "Miami", 20)
+);
+
+Map<Long, Long> empAgeCount = alOfEmp.stream().collect(Collectors.groupBy(Employee::getAge, Collectors.counting()));
+
+
+int[] arrayOfNumbers = {  25,132,153,456,1634 ,121,371,9474,9595,8208 };
+
+
+boolean isArmstrong(int value){
+	int armstrong = 0;
+	if(value >0){
+		int i = value%10;
+		for(int j = i; value> 0 ;)
+		armstrong = armstrong+value;
+		
+	}
+}
+--------------------
+HashMap<String, Integer> hm = new HashMap<String, Integer>();
+hm.put("John", 23);
+hm.put("Alex", 18);
+hm.put("Tim", 16);
+hm.put("Bob", 22);
+hm.put("Jack", 35);
+
+hm.stream().sorted(o ->o.getValue()))
+-------------------------
+add new books, remove existing books, update book details such as price and quantity, and display the current inventory. Implement classes such as Book, InventoryManager, and a main class to interact with users.
+--------------------------
+List<String> values = new ArrayList();
+values.add("photon");
+values.add("i");
+values.add("love");
+
+values.stream().sorted((s1,s2) -> (Integer)(s1.length() - s2.length())).collect(Collectors.toList());
+
+Customer {
+ 
+int id;
+String name;
+String depart;
+int salary;
+ 
+}
+ 
+List<Customer> customers = new ArrayList<>();
+
+Map<String,Long> map = customerList.stream().collect(Collectors.groupingBy(Customer::getDepart), Collectors.counting()));
+
+
+Map<String,Long> map = customerList.stream().fiter(s -> s.getDepart().equals("HR")).reduce(0, (i,j)-> (Integer)(i.getSal()+j.getSal())));
+
+Map<String,Long> map = customerList.stream().fiter(s -> s.getDepart().collect(Collectors.groupingBy(Customer::getDepart), Collectors.sum()));
+
+
+INput : String s = "ilovephoton";
+ 
+Outputs :
+ 
+s1 = iloveph
+ 
+s2 = o
+ 
+s3 = to
+ 
+s4=n
+
+static List<String> myList
+
+  Stream.of(s ->{
+	int length = s.length();
+	int i = 0;
+	int j = 0;
+	
+	while(i < length){
+		for(int k = i+1; k< length; k++){		
+			if(s.charAt(i) != s.charAt(k)){
+				i++;			
+			} else {
+				j = i;
+			}
+		}
+		myList.add(s.substring(j,i));
+	}
+	
+  })
+---------------------------------------
+[14:38] Rupam Kumari (Unverified)
+String myStr = "5,b,7,g,8,a,4,76,90,w"; Write a program to separate numbers and alphabets and sor
+[14:38] Rupam Kumari (Unverified)
+Sort  them and then merge the list 
+
+String myStrs[] = myStr.split(",");
+
+Array.sort(myStrs);
+Array.stream(myStrs).sorted().collect(Collectors.toList());
+------------------------------------
+
+
+UserController
+-----------------
+
+@PutMapping(value ="update-user")
+ResponseEntity<String> updateUser(@RequestBody User user){
+	String str=null;
+	if(user != null){
+		str = userService.updateUser(user);
+	}
+	
+	return new ResponseEntity<String>(str,HttpStatus.OK);
+}
+
+
+@PatchMapping(value ="update-user")
+ResponseEntity<String> updateUser(@RequestParam Optional<String> phoneNumber, @RequestParam Optional<String> email){
+	String str=null;
+	if(!phoneNumber.isEmpty() && !email.isEmpty()){
+		str = userService.updateUserEmail(phoneNumber.get(), email.get());
+	}
+	
+	return new ResponseEntity<String>(str,HttpStatus.OK);
+}
+
+
+@ControllerAdvise
+@RestController
+
+
+@ExceptionHandler
+
+
+
+Map<String,User> userMap = userList.stream().map(o -> o.userName(), o);
+
+Map<String,User> userMap
+
+list.forEach(o -> {
+	userMap.put(o.getUsername, o);
+})
+--------------------------------------
+write a java 8 code by use stream api to sort employee object(name,age,salary) to sort on the basis of name using lambda expression
+-----------------------------------------
+21,1,3,15,11,6,8,9
+
+1,15,11
+
+
+ Array.stream(values).filter(o -> o%10==1).collect(Collectors.toList());
+ 
+ 
+  Array.stream(values).filter(o -> {
+	String str = (String)0;
+	if(str.charAt(1)==1)}).collect(Collectors.toList());
+	
+	
+@output const name = "ajay";
+
+eventEmmuter
+--------------------------------------------------
+
+
+void configure(HttpSecurity hppt){
+
+	http.autorisedRequest().
+	antMatcher("/update-user/").authuenticated().
+	antMa
+}
+
+
+@Api
+@RestController
+@RequestMapping("/user")
+public class UserController{
+	@
+	
+	@PostMapping(value = "/save-user")
+	public ResponseEntity<String> saveUser(@RequestBody User user){
+		
+	
+	}
+	
+	@PutMapping(value = "/update-user")
+	public ResponseEntity<String> saveUser(@RequestBody User user){
+		
+	
+	}
+	
+	@GetMapping(value = "/get-all-user", applicationType:xm)
+	public ResponseEntity<List<User>> getAllUser(){
+		user
+		renturn new ResponseEntity<
+	}
+	
+	@DeleteMapping(value = "/delete-user")
+	public ResponseEntity<String> deleteUser(@RequestParam )
+	
+}
+
+
+userList.stream().filter(n -> n.getAge() > 30).collect(Collectors.toList());
+
+userList.stream().filter(n -> Collection.frequency(userList, 2)).collect(Collectors.toList());
+
+Map<String, Long> countDuplicate = userList.stream().mapToObject(n -> n.getUserName(), Collectors.counting())
+  userList.stream().collect(Collectors.groupingBY(User::name), Collectors.counting());
+ --------------------------------------------
+ class Thread1 implements Runnable{
+	run(){
+		for(1-5){
+			sysout(i);
+						
+		}
+		
+		notify();
+	}
+}
+
+class Thread1 implements Runnable{
+	run(){
+		for(6-10){
+			sysout(i);
+			
+		}
+	
+		
+	}
+}
+
+main(){
+
+Thread1 t1;
+Thread t2;
+t1.start();
+t2.start();
+
+
+list.stream().sorted(Comparator.comparing(Employye::gerAge)).collect(Collectors.toList());
+
+list.stream().sorted((e1,e2)-> (e1.getAge()-e2.getAge())).collect(Collectors.toList());
+
+
+1. why to write storedProcedure
+2. can extend IOExpection
+3. if i have employee object only with setter and getter put in map and set what will happen
+4. I have two indipendent components a, b, c in angular how does it communicate and share data like contry and state and zip code
+5. write thread two tread where to print 1 to 5 and 5 to 10 and print 1 to 10
+6. String s = "Ajay" and String s = new String("Ajay") what is the difference 
+7. How garbage collection work and what is minar and major garbage collection
+8. What is decorator in angular and how does it works
+---------------------------------------------
+
+
+List<String> str = new ArrayList<String>();
+
+
+str.forEach(str -> System.out.println(str));
+
+str.stream().filter(s -> s.status.equals("No")).collect(Collectors.toList());
+
+Map<String,Long> map = new HashMap<String,Long>();
+
+try {
+}
+catch (Exception e) {
+}
+catch (IOException e1) {
+}
+
+tandra.praneeth@capgemini.com
+--------------------------------------
+
+@RestController
+@AllArgConstructor
+public class UserController{
+
+	public final UserService userService;
+	
+	@PostMapping("save-custmer")
+	puboic ResponseEntity<Customer> saveCustomer(@RequestBody Customer customer){
+		if(customer !=null){
+			
+		}
+		new ResponseEntity
+	}
+}
+
+
+public interface I1{
+	public void add(T i, U j);
+}
+
+
+main(String args[]){
+	I1 i=
+	(int a,int b) -> System.out.println(a+b);
+}
+
+
+Example 1 : i/p "AMAT" "AMAZING" , "AMAZON"  o/p = AMA
+Example 2 : i/p "AMAZ" "AMAZING" , "AMAZON"  o/p = AMAZ
+Example 3 : i/p "TEST" "AMAZING" , "AMAZON"  o/p = null
+ 
+public String findCommonPrefix(List<String> s){
+ 
+// Write here
+ 
+}
+---------------------------
+Example 1
+Public interface interf{
+	Public void add(int a, int b);
+}
+Class Test{
+	Public static void main(String[] args){
+		Interf I = (a, b) -> System.out.println(“The sum is ”+(a+b)); 
+		i.add(10,2);
+		i.add(20,40);
+}
+}
+
+Example 2;
+
+public interface interf{
+	public int getLength(String s);
+}
+
+public class Test(){
+	public static void main(String[] args){
+		Interf i = s -> s.length();
+		i.getLength("Hello");
+	}
+}
+
+Example with Runnable
+--------------------------
+class ThreadDemo{
+	public static void main(String argh[]){
+		Runnable r = ()->{
+			for(int i=0; i<5;i++){
+				Sop("Chile Thread");
+			}
+		}
+		Thread t = new Thread(r);
+		t.start();
+		for(int i=0; i<5;i++){
+				Sop("Main Thread");
+		}
+	}
+}
+
+
+
 
 
